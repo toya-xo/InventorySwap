@@ -1,5 +1,9 @@
 
 # InventorySwap
+
+## Discontinued
+  I'll be working on a better one with other features.
+
 https://curseforge.com/minecraft/bukkit-plugins/inventoryswap
 
 This is a basic InventorySwap plugin for Minecraft for multiple players.
@@ -11,7 +15,7 @@ For starting the InventorySwap do "/swap <secs_between> player1 player2 (player3
 To stop the current InventorySwap use "/swap-stop"
 
 ## Config.yml
-- You can change messages in there if you want the message to be changed.
+- You can change messages there.
 
 ## Perms
 
