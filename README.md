@@ -1,27 +1,28 @@
+# Inventory Swap
 
-# InventorySwap
+This is a basic InventorySwap plugin for minecraft for multiple players.
 
-## Discontinued
-  I'll be working on a better one with other features.
+## Installation
 
-https://curseforge.com/minecraft/bukkit-plugins/inventoryswap
+To install it on your server, make sure you have spigot or paper and put it in the plugin folder.
 
-This is a basic InventorySwap plugin for Minecraft for multiple players.
+Download here : [Modrinth](https://modrinth.com/plugin/inventoryswap)
 
-To install it on your server, make sure you have spigot on it and put it in the plugin folder.
+## Usage
 
-For starting the InventorySwap do "/swap <secs_between> player1 player2 (player3 etc...)" 
+For starting the InventorySwap, do
+```
+/swap <secs_between> player1 player2 (player3 ...)
+```
+## Config
+You can modify messages sent in Config.yml
 
-To stop the current InventorySwap use "/swap-stop"
+## Permissions
+- Starting and stopping : `/swap ...` `/swap-stop`
+```
+permission: swap.use
+```
 
-## Config.yml
-- You can change messages there.
+## Contributing
 
-## Perms
-
-- Starting : /swap <secs_between> <player1> <player2>
->> permission: swap.use
-- Stop: /swap-stop
->> permission: swap.use
-
-# Thank you and enjoy!
+I will no longer be providing updates on this project, so contributions are welcome!

@@ -1,7 +1,7 @@
 name: InventorySwap
-version: '1.2.1'
+version: '1.2.2'
 main: ch.toyaxo.inventoryswap.InventorySwap
-api-version: "1.16"
+api-version: "1.21"
 authors: [toyaxo]
 description: "An inventory swap plugin"
 prefix: "InventorySwap"
@@ -9,7 +9,7 @@ commands:
   swap:
     permission: swap.use
     description: "A command that start inventory swap"
-    usage: "/swap <secs_between> <player1> <player2>..."
+    usage: "/swap <secs_between> <player1> <player2> <player3> ..."
     permission-message: "You do not have permission to use this command."
   swap-stop:
     permission: swap.use

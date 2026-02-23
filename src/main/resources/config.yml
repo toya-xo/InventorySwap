@@ -6,3 +6,4 @@ messages:
   player-name-invalid: "Player is invalid."
   cannot-start-two: "Cannot start two instances."
   stopped-disconnect: "Stopped inventory swap because one of the players has leaved."
+  player-already-exists: "No duplicate players allowed."

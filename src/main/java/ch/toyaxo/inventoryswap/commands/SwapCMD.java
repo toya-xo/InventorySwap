@@ -27,7 +27,7 @@ public class SwapCMD implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (label.equals("swap")) {
             if (InventorySwap.task != null) {
-                sender.sendMessage(this.pluginMain.getConfig().getString("messages.cannot-start-two"));
+                sender.sendMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.cannot-start-two")));
                 return true;
             }
             int timer = Integer.parseInt(args[0]);
@@ -35,7 +35,12 @@ public class SwapCMD implements CommandExecutor {
             for (int i = 1; i < args.length; i++) {
                 Player p = Bukkit.getPlayer(args[i]);
                 if (p == null) {
-                    sender.sendMessage(this.pluginMain.getConfig().getString("messages.player-name-invalid"));
+                    sender.sendMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.player-name-invalid")));
+                    return true;
+                }
+
+                if (players.contains(p)) {
+                    sender.sendMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.player-already-exists")));
                     return true;
                 }
                 players.add(p);
@@ -48,12 +53,12 @@ public class SwapCMD implements CommandExecutor {
             for (int j = 0; j < players.size(); j++)
                 pB.append(((Player)players.get(j)).getDisplayName()).append((j != players.size() - 1) ? "," : "");
             startSwapTask(timer, players);
-            Bukkit.broadcastMessage("§4"+String.format(this.pluginMain.getConfig().getString("messages.started-msg"), new Object[] { pB.toString() }));
+            Bukkit.broadcastMessage("§4"+String.format(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.started-msg")), new Object[] { pB.toString() }));
             return true;
         }
         if (label.equalsIgnoreCase("swap-stop")) {
             stopSwapTask();
-            Bukkit.broadcastMessage(this.pluginMain.getConfig().getString("messages.stopped-msg"));
+            Bukkit.broadcastMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.stopped-msg")));
         }
         return true;
     }
@@ -66,7 +71,7 @@ public class SwapCMD implements CommandExecutor {
                 if (this.time == 15) {
                     Bukkit.broadcastMessage("§e"+this.time + " " + SwapCMD.this.pluginMain.getConfig().getString("messages.seconds-before-swapping-msg"));
                 } else if (this.time == 0) {
-                    if(!checkPlayers(players)){} else {
+                    if(checkPlayers(players)) {
                         Bukkit.broadcastMessage("§c§l"+SwapCMD.this.pluginMain.getConfig().getString("messages.started-swapping-msg"));
                         List<ItemStack[]> contents = (List)new ArrayList<>();
                         List<ItemStack> offHands = new ArrayList<>();
