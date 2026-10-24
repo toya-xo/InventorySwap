@@ -6,7 +6,7 @@
 
     <groupId>ch.toyaxo</groupId>
     <artifactId>InventorySwap</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <packaging>jar</packaging>
 
     <name>InventorySwap</name>
@@ -67,7 +67,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>26.2-R0.1-SNAPSHOT</version>
+            <version>26.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

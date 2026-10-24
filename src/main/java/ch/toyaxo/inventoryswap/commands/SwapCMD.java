@@ -30,7 +30,13 @@ public class SwapCMD implements CommandExecutor {
                 sender.sendMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.cannot-start-two")));
                 return true;
             }
-            int timer = Integer.parseInt(args[0]);
+            if (args.length < 1) return false;
+            int timer;
+            try {
+                timer = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                return false;
+            }
             List<Player> players = new ArrayList<>();
             for (int i = 1; i < args.length; i++) {
                 Player p = Bukkit.getPlayer(args[i]);
@@ -57,6 +63,7 @@ public class SwapCMD implements CommandExecutor {
             return true;
         }
         if (label.equalsIgnoreCase("swap-stop")) {
+            if (InventorySwap.task == null) return true;
             stopSwapTask();
             Bukkit.broadcastMessage(Objects.requireNonNull(this.pluginMain.getConfig().getString("messages.stopped-msg")));
         }
@@ -116,6 +123,7 @@ public class SwapCMD implements CommandExecutor {
     }
 
     private void stopSwapTask() {
+        if (InventorySwap.task == null) return;
         InventorySwap.task.cancel();
         InventorySwap.task = null;
     }
